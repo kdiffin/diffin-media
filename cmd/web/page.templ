@@ -1,0 +1,50 @@
+package web
+
+templ Page() {
+	@Base() {
+		@Login()
+	}
+}
+
+templ Login() {
+	<div class="hero h-full">
+		<div class="hero-content flex-col gap-12 lg:flex-row-reverse">
+			<div class="text-center max-w-screen-sm lg:text-left">
+				<h1 class="text-5xl font-bold">diffin-media</h1>
+				<p class="py-6">
+					I'm making this project to learn a few cool technologies and test the limits 
+					<span class="text-warning">HTMX</span>, <span class="text-accent">DaisyUI</span> and <span class="text-info">Templ</span>
+					<br/>
+					<br/>
+					This project is a mix of discord and twitter.
+				</p>
+			</div>
+			<div class="card bg-base-200 w-full  max-w-sm  shadow-2xl">
+				<div class="card-body">
+					<fieldset class="fieldset ">
+						<legend class="fieldset-legend">Auth</legend>
+						<label class="label">Email</label>
+						<input type="email" class="input" placeholder="Email"/>
+						<label class="label">Password</label>
+						<input type="password" class="input" placeholder="Password"/>
+						<div><a class="link link-hover">Forgot password?</a></div>
+						<label class="label">Profile picture</label>
+						<input type="file" class="file-input"/>
+						<label class="label">Max size 4MB</label>
+						<button class="btn btn-primary mt-4">Sign Up / Login</button>
+						<div class="flex items-center mt-1 gap-2">
+							<button class="btn btn-secondary flex-1 ">Google</button>
+							<button class="btn btn-primary flex-1">Github</button>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
+templ HelloB(name string) {
+	<div class=" p-4 shadow-md rounded-lg mt-6">
+		<p>Hello, { name }</p>
+	</div>
+}

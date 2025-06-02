@@ -6,6 +6,7 @@ WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
 
+# install daisyui here too
 COPY . .
 RUN go install github.com/a-h/templ/cmd/templ@latest && \
     templ generate && \

@@ -5,19 +5,22 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/a-h/templ"
 	"my_project/cmd/web"
+
+	"github.com/a-h/templ"
 )
 
 func (s *Server) RegisterRoutes() http.Handler {
 	mux := http.NewServeMux()
 
 	// Register routes
-	mux.HandleFunc("/", s.HelloWorldHandler)
+	mux.HandleFunc("/{$}", s.HelloWorldHandler)
 
 	fileServer := http.FileServer(http.FS(web.Files))
 	mux.Handle("/assets/", fileServer)
-	mux.Handle("/web", templ.Handler(web.HelloForm()))
+	mux.Handle("/web/{$}", templ.Handler(web.Page()))
+	mux.Handle("/home/{$}", templ.Handler(web.Home()))
+
 	mux.HandleFunc("/hello", web.HelloWebHandler)
 
 	// Wrap the mux with CORS middleware

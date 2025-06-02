@@ -12,7 +12,7 @@ func HelloWebHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	name := r.FormValue("name")
-	component := HelloPost(name)
+	component := HelloB(name)
 	err = component.Render(r.Context(), w)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
