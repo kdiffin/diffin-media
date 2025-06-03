@@ -26,7 +26,7 @@ build: tailwind-install templ-install
 	@templ generate
 	@./tailwindcss -i cmd/web/styles/input.css -o cmd/web/assets/css/output.css --minify
 	@go build -o main cmd/api/main.go
-
+ 
 # Run the application
 run:
 	@go run cmd/api/main.go
