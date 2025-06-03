@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"my_project/cmd/web"
+	"diffinmedia/cmd/web"
 
 	"github.com/a-h/templ"
 )

@@ -1,4 +1,4 @@
-module my_project
+module diffinmedia
 
 go 1.24.2
 
