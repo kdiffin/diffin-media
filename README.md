@@ -8,7 +8,8 @@ going to try to clone twitter and discord type shit with templ+htmx
 - [ ] make the packages not-so-nested
 - [ ] get the templ files all organized and stuff, into pages and components
 - [ ] componentize frontend
-  - [ ] make dropdowns have border
+  - [x] make dropdowns have border
+- [ ] make an `<AvatarDropdown>` component
 - [ ] make navbar have responsivene links to chat/feed, profile dropdown (crud on profile), github repo (footer too)
 - [ ] make a profile page:
   - [ ] with dm, chat, and show off a bunch of his stuff in his profile like

@@ -74,10 +74,15 @@ templ SearchBar() {
 templ OnlineFriends() {
 	<div>
 		<h2 class="font-bold text-lg mb-2">Online Friends</h2>
-		<div class="flex -space-x-3">
+		<div class="flex   -space-x-1">
 			@AvatarStatus("/assets/images/goku.jpg", "goku", "best friend")
 			@AvatarStatus("/assets/images/goku.jpg", "goku2", "friend")
 			@AvatarStatus("/assets/images/goku.jpg", "goku3", "pal")
+			<div class="avatar z-10  border-4 border-base-100  rounded-full avatar-placeholder">
+				<div class="bg-secondary rounded-full text-xs  font-semibold text-secondary-content w-8">
+					<span>+99</span>
+				</div>
+			</div>
 		</div>
 	</div>
 }
@@ -126,7 +131,7 @@ templ Form() {
 
 type Diff struct {
 	Username  string
-	Handler   string
+	Handle    string
 	Content   string
 	CreatedAt string
 	EditedAt  string
@@ -139,7 +144,7 @@ templ Feed() {
 		<div class=" border-b-4  border-dashed py-8 border-base-200">
 			@DiffCard(Diff{
 				Username:  "uea",
-				Handler:   "@uea",
+				Handle:    "@uea",
 				Content:   "This is a diff!",
 				CreatedAt: "2025-06-04 12:00",
 				EditedAt:  "2025-06-04 12:30",
@@ -147,7 +152,7 @@ templ Feed() {
 				Replies: []Diff{
 					{
 						Username:  "vegeta",
-						Handler:   "@vegeta",
+						Handle:    "@vegeta",
 						Content:   "This is a reply!",
 						CreatedAt: "2025-06-04 12:10",
 						EditedAt:  "2025-06-04 12:15",
@@ -155,7 +160,7 @@ templ Feed() {
 						Replies: []Diff{
 							{
 								Username:  "bulma",
-								Handler:   "@bulma",
+								Handle:    "@bulma",
 								Content:   "Another reply, nested!",
 								CreatedAt: "2025-06-04 12:12",
 								EditedAt:  "2025-06-04 12:13",
@@ -164,7 +169,7 @@ templ Feed() {
 							},
 							{
 								Username:  "ata",
-								Handler:   "@bulma",
+								Handle:    "@bulma",
 								Content:   "Another reply, nested!",
 								CreatedAt: "2025-06-04 12:12",
 								EditedAt:  "2025-06-04 12:13",
@@ -179,7 +184,7 @@ templ Feed() {
 		<div class=" border-b-4  border-dashed py-8 border-base-200">
 			@DiffCard(Diff{
 				Username:  "goku",
-				Handler:   "@goku",
+				Handle:    "@goku",
 				Content:   "Another diff!",
 				CreatedAt: "2025-06-04 13:00",
 				EditedAt:  "2025-06-04 13:10",
@@ -205,7 +210,7 @@ templ DiffCard(diff Diff) {
 					<div>
 						<p class="font-bold">{ diff.Username }</p>
 						<div class="flex items-center gap-1 ">
-							<p>{ diff.Handler }</p>
+							<p>{ diff.Handle }</p>
 							<p>|</p>
 							<p>{ diff.CreatedAt }</p>
 							if diff.EditedAt != "" {
@@ -218,7 +223,7 @@ templ DiffCard(diff Diff) {
 					<label tabindex="0" class="btn btn-ghost btn-circle">
 						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12h.01M12 12h.01M18 12h.01"></path></svg>
 					</label>
-					<ul tabindex="0" class="dropdown-content border-base-200  border-2 z-[1] menu p-2 shadow bg-base-100 rounded-box w-40">
+					@DropdownContent() {
 						if diff.IsOwner {
 							<li>
 								<a onclick="my_modal_2.showModal()">Edit Diff</a>
@@ -240,7 +245,7 @@ templ DiffCard(diff Diff) {
 							<li><a>Delete Diff</a></li>
 						}
 						<li><a>Report</a></li>
-					</ul>
+					}
 				</div>
 			</div>
 			<p class="my-2">{ diff.Content }</p>
