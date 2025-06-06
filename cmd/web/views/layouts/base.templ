@@ -1,5 +1,7 @@
 package web
 
+import layout "diffinmedia/cmd/web/views/components/layout"
+
 templ Base() {
 	<!DOCTYPE html>
 	<html lang="en" data-theme="black" class="h-screen">
@@ -11,11 +13,11 @@ templ Base() {
 			<script src="/assets/js/htmx.min.js.gz"></script>
 		</head>
 		<body class="grid  grid-rows-[auto_1fr_auto] min-h-screen ">
-			@Navbar()
+			@layout.Navbar()
 			<main class=" container  mx-auto p-4 w-full">
 				{ children... }
 			</main>
-			@Footer()
+			@layout.Footer()
 		</body>
 	</html>
 }

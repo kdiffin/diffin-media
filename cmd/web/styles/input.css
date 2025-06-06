@@ -1,6 +1,6 @@
 /* stylelint-disable */
 @import "tailwindcss" source(none);
-@source "../*.{templ}";
+@source "../views/**/*.{templ}";
 
 @plugin "../../../daisyui" {
   /* custom theme here */

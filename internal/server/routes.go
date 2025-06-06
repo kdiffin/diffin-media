@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"diffinmedia/cmd/web"
+	pages "diffinmedia/cmd/web/views/pages"
 
 	"github.com/a-h/templ"
 )
@@ -18,10 +19,8 @@ func (s *Server) RegisterRoutes() http.Handler {
 
 	fileServer := http.FileServer(http.FS(web.Files))
 	mux.Handle("/assets/", fileServer)
-	mux.Handle("/web/{$}", templ.Handler(web.Page()))
-	mux.Handle("/home/{$}", templ.Handler(web.Home()))
-
-	mux.HandleFunc("/hello", web.HelloWebHandler)
+	mux.Handle("/auth/{$}", templ.Handler(pages.Auth()))
+	mux.Handle("/home/{$}", templ.Handler(pages.Home()))
 
 	// Wrap the mux with CORS middleware
 	return s.corsMiddleware(mux)

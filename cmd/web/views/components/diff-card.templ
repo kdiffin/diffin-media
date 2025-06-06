@@ -1,0 +1,103 @@
+package components
+
+import "diffinmedia/cmd/web/views/components/ui"
+
+type Diff struct {
+	Username  string
+	Handle    string
+	Content   string
+	CreatedAt string
+	EditedAt  string
+	IsOwner   bool
+	Replies   []Diff
+}
+
+templ DiffCard(diff Diff) {
+	<div
+		class="card  bg-base-100 w-full"
+	>
+		<div class="card-body">
+			<div class="flex items-center justify-between gap-4">
+				<div class="flex items-center gap-4">
+					@ui.AvatarStatus("/assets/images/goku.jpg", diff.Username, "best friend")
+					<div>
+						<p class="font-bold">{ diff.Username }</p>
+						<div class="flex items-center gap-1 ">
+							<p>{ diff.Handle }</p>
+							<p>|</p>
+							<p>{ diff.CreatedAt }</p>
+							if diff.EditedAt != "" {
+								<p class="text-xs text-neutral">(edited { diff.EditedAt })</p>
+							}
+						</div>
+					</div>
+				</div>
+				<div class="dropdown   dropdown-end">
+					<label tabindex="0" class="btn btn-ghost btn-circle">
+						@ui.MoreIcon("")
+					</label>
+					@ui.DropdownContent() {
+						<li><a>Edit Diff</a></li>
+						<li><a>Delete Diff</a></li>
+					}
+				</div>
+			</div>
+			<p class="my-2">{ diff.Content }</p>
+			<div class="card-actions flex items-center justify-between">
+				<div class="flex items-center     gap-2">
+					<button class="btn btn-ghost btn-sm" onclick="replyDiffModal.showModal()">
+						@ui.ChevronDownIcon("")
+						Show Replies
+					</button>
+				</div>
+				<div class="flex gap-2 items-center">
+					<button class="btn rounded-full" title="Like">
+						@ui.HeartIcon("")
+						24k
+					</button>
+					<button class="btn rounded-full " title="Repost">
+						@ui.RepostIcon("")
+						241
+					</button>
+					<button class="btn rounded-full " title="Repost">
+						@ui.MessageIcon("")
+						123
+					</button>
+				</div>
+			</div>
+			if len(diff.Replies) > 0 {
+				<div class="ml-8 mt-4 border-l-2 border-base-300 pl-4">
+					for _, reply := range diff.Replies {
+						@DiffCard(reply)
+					}
+				</div>
+			}
+		</div>
+	</div>
+}
+
+templ EditDiffModal() {
+	<dialog id="editDiffModal" class="modal">
+		<form method="dialog" class="modal-box">
+			<h3 class="font-bold text-lg">Edit Diff</h3>
+			<textarea class="textarea w-full" placeholder="Edit your diff..."></textarea>
+			<div class="modal-action">
+				<button class="btn">Save</button>
+				<button class="btn">Cancel</button>
+			</div>
+		</form>
+	</dialog>
+}
+
+templ ReplyDiffModal() {
+	<dialog id="replyDiffModal" class="modal">
+		<form method="dialog" class="modal-box">
+			<h3 class="font-bold text-lg">Reply to Diff</h3>
+			<textarea class="textarea w-full" placeholder="Write your reply..."></textarea>
+			<div class="modal-action">
+				<button class="btn">Reply</button>
+				<button class="btn">Cancel</button>
+			</div>
+		</form>
+	</dialog>
+}

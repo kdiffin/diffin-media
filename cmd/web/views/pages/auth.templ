@@ -1,7 +1,9 @@
 package web
 
-templ Page() {
-	@Base() {
+import layouts "diffinmedia/cmd/web/views/layouts"
+
+templ Auth() {
+	@layouts.Base() {
 		@Login()
 	}
 }
@@ -53,11 +55,5 @@ templ Login() {
 				</div>
 			</div>
 		</div>
-	</div>
-}
-
-templ HelloB(name string) {
-	<div class=" p-4 shadow-md rounded-lg mt-6">
-		<p>Hello, { name }</p>
 	</div>
 }
