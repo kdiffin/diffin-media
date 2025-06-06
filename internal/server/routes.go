@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	"diffinmedia/cmd/web"
-	pages "diffinmedia/cmd/web/views/pages"
+	"diffinmedia/web"
+	pages "diffinmedia/web/views/pages"
 
 	"github.com/a-h/templ"
 )
