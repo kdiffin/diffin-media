@@ -4,7 +4,7 @@ import layout "diffinmedia/web/views/components/layout"
 
 templ Base() {
 	<!DOCTYPE html>
-	<html lang="en" data-theme="black" class="h-screen">
+	<html lang="en" data-theme="emerald" class="h-screen">
 		<head>
 			<meta charset="utf-8"/>
 			<meta name="viewport" content="width=device-width,initial-scale=1"/>
@@ -12,7 +12,7 @@ templ Base() {
 			<link href="/assets/css/output.css" rel="stylesheet"/>
 			<script src="/assets/js/htmx.min.js.gz"></script>
 		</head>
-		<body class="grid  grid-rows-[auto_1fr_auto] min-h-screen ">
+		<body class="grid  grid-rows-[auto_1fr_auto]  min-h-screen ">
 			@layout.Navbar()
 			<main class=" container  mx-auto p-4 w-full">
 				{ children... }

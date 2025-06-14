@@ -4,7 +4,7 @@
 
 @plugin "./daisyui" {
   /* custom theme here */
-  themes: light --default, dark --prefersdark, black;
+  themes: light --default, emerald;
 }
 
 /* Optional for custom themes – Docs: https://daisyui.com/docs/themes/#how-to-add-a-new-custom-theme */

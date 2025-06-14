@@ -3,40 +3,46 @@ package layout
 import ui "diffinmedia/web/views/components/ui"
 
 templ Navbar() {
-	<div class="   flex justify-center items-center   shadow-sm">
+	<div class="   flex justify-center items-center    shadow-sm">
 		<div class="container navbar 	">
 			<div class="flex-1">
-				<a class="btn btn-ghost text-xl">diffin-media</a>
+				<a class="btn btn-ghost text-xl">test-thing</a>
 			</div>
-			<div class="flex-none">
-				// @ThemeButton()
-				<div class="dropdown dropdown-end">
-					<div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+			<div class="flex  items-center">
+				// mobile
+				<div class="dropdown  md:hidden block dropdown-end">
+					@ui.DropdownTrigger("btn btn-ghost btn-circle") {
 						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path> </svg>
-					</div>
-					@ui.DropdownContent() {
+					}
+					@ui.DropdownContent("") {
 						<li><a>Homepage</a></li>
 						<li><a>Portfolio</a></li>
 						<li><a>About</a></li>
 					}
 				</div>
+				<div class="flex-none">
+					<ul class="menu menu-horizontal px-1">
+						<li><a>Link</a></li>
+						<li><a>Link</a></li>
+					</ul>
+				</div>
 				<div class="dropdown dropdown-end">
-					<div tabindex="0" role="button" class="btn  btn-ghost bg-base-100 btn-circle avatar">
+					@ui.DropdownTrigger("btn btn-ghost bg-base-100 btn-circle avatar") {
 						<div class="w-10 rounded-full">
 							<img
 								alt="Tailwind CSS Navbar component"
 								src="/assets/images/goku.jpg"
 							/>
 						</div>
-					</div>
-					@ui.DropdownContent() {
+					}
+					@ui.DropdownContent("") {
 						<li>
-							<a class="justify-between">
+							<a href="/" class="justify-between">
 								Profile
 								<span class="badge">New</span>
 							</a>
 						</li>
-						<li><a>Settings</a></li>
+						<li><a href="//">Settings</a></li>
 						<li><a>Logout</a></li>
 					}
 				</div>

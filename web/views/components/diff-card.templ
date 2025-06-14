@@ -33,10 +33,10 @@ templ DiffCard(diff Diff) {
 					</div>
 				</div>
 				<div class="dropdown   dropdown-end">
-					<label tabindex="0" class="btn btn-ghost btn-circle">
+					@ui.DropdownTrigger("") {
 						@ui.MoreIcon("")
-					</label>
-					@ui.DropdownContent() {
+					}
+					@ui.DropdownContent("") {
 						<li><a>Edit Diff</a></li>
 						<li><a>Delete Diff</a></li>
 					}

@@ -1,21 +1,4 @@
-# Project diffin-media
-
-going to try to clone twitter and discord type shit with templ+htmx
-
-**shit to get done**
-
-- [ ]
-- [ ] make the packages not-so-nested
-- [ ] get the templ files all organized and stuff, into pages and components
-- [ ] componentize frontend
-  - [x] make dropdowns have border
-- [ ] make an `<AvatarDropdown>` component
-- [ ] make a custom image rendering method + an image component to render images without destroying the app
-- [ ] make navbar have responsivene links to chat/feed, profile dropdown (crud on profile), github repo (footer too)
-- [ ] make a profile page:
-  - [ ] with dm, chat, and show off a bunch of his stuff in his profile like
-  - [ ] most reacted message in chat part, most well rated tweet, followers, following, total likes on profile, total tweets
-- [x] change how the replies nest
+# test
 
 ## Getting Started
 
